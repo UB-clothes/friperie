@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-/* Couleurs de la marque : modifie uniquement ces variables */
 :root{--ink:#111;--bg:#fff;--soft:#F5F5F4;--line:#E3E3E0;--muted:#666;--accent:#111}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -20,17 +19,17 @@ a{color:inherit}
 .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
 header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);border-bottom:1px solid var(--line)}
 nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
-.logo{font-weight:800;letter-spacing:.5px;text-decoration:none}
+.logo{font-weight:800;letter-spacing:.5px;text-decoration:none;cursor:pointer}
 .right{display:flex;align-items:center;gap:26px}
 .links{display:flex;gap:24px;font-size:15px}
-.links a{text-decoration:none;color:var(--muted)}
+.links a{text-decoration:none;color:var(--muted);cursor:pointer}
 .links a:hover{color:var(--ink)}
 select{font:inherit;font-size:14px;padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
 .hero{padding:110px 0 90px}
 h1{font-size:clamp(38px,6.5vw,68px);line-height:1.05;font-weight:800;letter-spacing:-1.5px;max-width:780px;margin-bottom:24px}
 .lead{max-width:520px;color:var(--muted);font-size:19px}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.btn{display:inline-block;padding:14px 24px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;text-decoration:none;border-radius:4px;transition:opacity .2s}
+.btn{display:inline-block;padding:14px 24px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;text-decoration:none;border-radius:4px;transition:opacity .2s;cursor:pointer}
 .btn:hover{opacity:.8}
 .btn.ghost{background:transparent;color:var(--ink)}
 .btn.ghost:hover{opacity:.6}
@@ -59,6 +58,11 @@ h2{font-size:clamp(26px,3.5vw,34px);font-weight:800;letter-spacing:-.5px;margin-
 .item span{display:block;margin-top:10px;font-weight:600;font-size:15px}
 .item small{color:var(--muted);font-size:14px}
 footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;color:var(--muted);font-size:14px}
+
+/* Gestion du masque de sections */
+.page-dressing #home-content { display: none !important; }
+.page-dressing #articles { display: block !important; border-top: none; }
+
 @media (max-width:720px){
   body{font-size:16px}
   .links{display:none}
@@ -72,13 +76,13 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;colo
 <body>
 <header>
   <nav class="wrap" aria-label="Navigation">
-    <a class="logo" href="#top">UB CLOTHES</a>
+    <a class="logo" onclick="showHome()">UB CLOTHES</a>
     <div class="right">
       <div class="links">
-        <a href="#articles" data-i="navSelection">Sélection</a>
-        <a href="#concept" data-i="nav1">Concept</a>
-        <a href="#histoire" data-i="nav2">Histoire</a>
-        <a href="#contact" data-i="nav3">Contact</a>
+        <a onclick="showDressing()" data-i="navDressing">Dressing</a>
+        <a href="#concept" onclick="showHome()" data-i="nav1">Concept</a>
+        <a href="#histoire" onclick="showHome()" data-i="nav2">Histoire</a>
+        <a href="#contact" onclick="showHome()" data-i="nav3">Contact</a>
       </div>
       <select id="lang" aria-label="Langue / Language">
         <option value="fr">Français</option>
@@ -92,67 +96,71 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;colo
 </header>
 
 <main id="top">
-  <div class="wrap hero">
-    <h1 data-i="h1"></h1>
-    <p class="lead" data-i="lead"></p>
-    <div class="actions">
-      <a class="btn" href="https://www.vinted.fr/member/287662659" target="_blank" rel="noopener" data-i="btnShop"></a>
-      <a class="btn ghost" href="#histoire" data-i="btnStory"></a>
+  <!-- Contenu Accueil -->
+  <div id="home-content">
+    <div class="wrap hero">
+      <h1 data-i="h1"></h1>
+      <p class="lead" data-i="lead"></p>
+      <div class="actions">
+        <a class="btn" onclick="showDressing()" data-i="btnDressing">Voir le dressing</a>
+        <a class="btn ghost" href="#histoire" data-i="btnStory"></a>
+      </div>
+
+      <!-- Bandeau de réassurance -->
+      <div class="trust-bar">
+        <div class="trust-item">🚚 Envoi rapide sous 24/48h</div>
+        <div class="trust-item">✨ Articles 100% authentiques</div>
+        <div class="trust-item">🔒 Paiement sécurisé via Vinted</div>
+      </div>
     </div>
 
-    <!-- Bandeau de réassurance -->
-    <div class="trust-bar">
-      <div class="trust-item">🚚 Envoi rapide sous 24/48h</div>
-      <div class="trust-item">✨ Articles 100% authentiques</div>
-      <div class="trust-item">🔒 Paiement sécurisé via Vinted</div>
-    </div>
+    <section id="concept">
+      <div class="wrap">
+        <h2 data-i="cT"></h2>
+        <div class="points">
+          <div><h3 data-i="p1t"></h3><p data-i="p1p"></p></div>
+          <div><h3 data-i="p2t"></h3><p data-i="p2p"></p></div>
+          <div><h3 data-i="p3t"></h3><p data-i="p3p"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="histoire" class="story">
+      <div class="wrap">
+        <h2 data-i="sT"></h2>
+        <div class="text">
+          <p data-i="s1"></p>
+          <p data-i="s2"></p>
+          <p data-i="s3"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <h2 data-i="shT"></h2>
+        <p data-i="shP"></p>
+        <a class="btn" href="https://www.vinted.fr/member/287662659" target="_blank" rel="noopener" data-i="shB"></a>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <h2 data-i="ctT"></h2>
+        <p data-i="ctP"></p>
+        <a class="mail" href="mailto:ubclothes.fr@gmail.com">ubclothes.fr@gmail.com</a>
+        <div class="actions">
+          <a class="btn ghost" href="https://www.vinted.fr/member/287662659" target="_blank" rel="noopener" data-i="ctV"></a>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <section id="articles" hidden>
+  <!-- Page Dressing isolée -->
+  <section id="articles" style="display:none;">
     <div class="wrap">
       <h2 data-i="aT"></h2>
       <div class="grid" id="grid"></div>
-    </div>
-  </section>
-
-  <section id="concept">
-    <div class="wrap">
-      <h2 data-i="cT"></h2>
-      <div class="points">
-        <div><h3 data-i="p1t"></h3><p data-i="p1p"></p></div>
-        <div><h3 data-i="p2t"></h3><p data-i="p2p"></p></div>
-        <div><h3 data-i="p3t"></h3><p data-i="p3p"></p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="histoire" class="story">
-    <div class="wrap">
-      <h2 data-i="sT"></h2>
-      <div class="text">
-        <p data-i="s1"></p>
-        <p data-i="s2"></p>
-        <p data-i="s3"></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="wrap">
-      <h2 data-i="shT"></h2>
-      <p data-i="shP"></p>
-      <a class="btn" href="https://www.vinted.fr/member/287662659" target="_blank" rel="noopener" data-i="shB"></a>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <h2 data-i="ctT"></h2>
-      <p data-i="ctP"></p>
-      <a class="mail" href="mailto:ubclothes.fr@gmail.com">ubclothes.fr@gmail.com</a>
-      <div class="actions">
-        <a class="btn ghost" href="https://www.vinted.fr/member/287662659" target="_blank" rel="noopener" data-i="ctV"></a>
-      </div>
     </div>
   </section>
 </main>
@@ -161,7 +169,7 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;colo
 
 <script>
 var T={
-fr:{navSelection:"Sélection",nav1:"Concept",nav2:"Histoire",nav3:"Contact",
+fr:{navDressing:"Dressing",btnDressing:"Voir le dressing",nav1:"Concept",nav2:"Histoire",nav3:"Contact",
 h1:"La mode de marque, sans le prix qui va avec.",
 lead:"UB Clothes est une friperie digitale : des pièces de marques authentiques, de seconde main, à petits prix.",
 btnShop:"Voir la boutique Vinted",btnStory:"Notre histoire",cT:"Le concept",
@@ -174,7 +182,7 @@ s2:"Les étudiants sont en première ligne face à la précarité, mais ils ne s
 s3:"Je me suis lancé pour proposer des articles de marque authentiques, de qualité, à petit prix. Donner une seconde vie aux vêtements, c'est aussi une façon de consommer plus intelligemment.",
 shT:"La collection est sur Vinted",shP:"Articles disponibles, photos, tailles et prix : tout est sur notre boutique Vinted.",shB:"Accéder à Vinted",
 ctT:"Contact",ctP:"Une question sur un article ? Écris-nous par e-mail ou sur Vinted.",ctV:"Message sur Vinted",tag:"Friperie digitale"},
-en:{navSelection:"Selection",nav1:"Concept",nav2:"Story",nav3:"Contact",
+en:{navDressing:"Dressing",btnDressing:"View dressing",nav1:"Concept",nav2:"Story",nav3:"Contact",
 h1:"Brand fashion, without the brand price.",
 lead:"UB Clothes is a digital thrift store: authentic second-hand brand pieces at small prices.",
 btnShop:"View the Vinted shop",btnStory:"Our story",cT:"The concept",
@@ -187,7 +195,7 @@ s2:"Students are on the front line of financial insecurity, but they are not the
 s3:"I started this project to offer authentic, quality brand-name items at small prices. Giving clothes a second life is also a smarter way to shop.",
 shT:"The collection is on Vinted",shP:"Available items, photos, sizes and prices: everything is on our Vinted shop.",shB:"Go to Vinted",
 ctT:"Contact",ctP:"A question about an item? Write to us by e-mail or on Vinted.",ctV:"Message on Vinted",tag:"Digital thrift store"},
-de:{navSelection:"Auswahl",nav1:"Konzept",nav2:"Geschichte",nav3:"Kontakt",
+de:{navDressing:"Dressing",btnDressing:"Zum Dressing",nav1:"Konzept",nav2:"Geschichte",nav3:"Kontakt",
 h1:"Markenmode, ohne den Markenpreis.",
 lead:"UB Clothes ist ein digitaler Secondhand-Laden: authentische Markenstücke aus zweiter Hand zu kleinen Preisen.",
 btnShop:"Vinted-Shop ansehen",btnStory:"Unsere Geschichte",cT:"Das Konzept",
@@ -200,7 +208,7 @@ s2:"Studierende sind von finanzieller Unsicherheit besonders betroffen, aber nic
 s3:"Ich habe dieses Projekt gestartet, um authentische, hochwertige Markenartikel zu kleinen Preisen anzubieten. Kleidung ein zweites Leben zu geben, ist außerdem eine klügere Art einzukaufen.",
 shT:"Die Kollektion ist auf Vinted",shP:"Verfügbare Artikel, Fotos, Größen und Preise: alles in unserem Vinted-Shop.",shB:"Zu Vinted",
 ctT:"Kontakt",ctP:"Eine Frage zu einem Artikel? Schreib uns per E-Mail oder auf Vinted.",ctV:"Nachricht auf Vinted",tag:"Digitaler Secondhand-Laden"},
-es:{navSelection:"Selección",nav1:"Concepto",nav2:"Historia",nav3:"Contacto",
+es:{navDressing:"Dressing",btnDressing:"Ver dressing",nav1:"Concepto",nav2:"Historia",nav3:"Contacto",
 h1:"Moda de marca, sin el precio de marca.",
 lead:"UB Clothes es una tienda de segunda mano digital: prendas de marca auténticas a precios pequeños.",
 btnShop:"Ver la tienda en Vinted",btnStory:"Nuestra historia",cT:"El concepto",
@@ -213,7 +221,7 @@ s2:"Los estudiantes están en primera línea de la precariedad, pero no son los 
 s3:"Me lancé para ofrecer artículos de marca auténticos y de calidad a precios pequeños. Dar una segunda vida a la ropa también es una forma más inteligente de consumir.",
 shT:"La colección está en Vinted",shP:"Artículos disponibles, fotos, tallas y precios: todo está en nuestra tienda de Vinted.",shB:"Ir a Vinted",
 ctT:"Contacto",ctP:"¿Alguna pregunta sobre un artículo? Escríbenos por correo o en Vinted.",ctV:"Mensaje en Vinted",tag:"Tienda de segunda mano digital"},
-it:{navSelection:"Selezione",nav1:"Concept",nav2:"Storia",nav3:"Contatti",
+it:{navDressing:"Dressing",btnDressing:"Vedi dressing",nav1:"Concept",nav2:"Storia",nav3:"Contatti",
 h1:"Moda di marca, senza il prezzo di marca.",
 lead:"UB Clothes è un negozio vintage digitale: capi di marca autentici di seconda mano a piccoli prezzi.",
 btnShop:"Vai al negozio su Vinted",btnStory:"La nostra storia",cT:"Il concept",
@@ -227,15 +235,14 @@ s3:"Ho iniziato per offrire articoli di marca autentici e di qualità a piccoli 
 shT:"La collezione è su Vinted",shP:"Articoli disponibili, foto, taglie e prezzi: tutto nel nostro negozio su Vinted.",shB:"Vai su Vinted",
 ctT:"Contatti",ctP:"Una domanda su un articolo? Scrivici via e-mail o su Vinted.",ctV:"Messaggio su Vinted",tag:"Negozio vintage digitale"}
 };
-T.fr.aT="Sélection du moment";T.en.aT="Latest picks";T.de.aT="Aktuelle Auswahl";T.es.aT="Selección del momento";T.it.aT="Selezione del momento";
+T.fr.aT="Notre Dressing";T.en.aT="Our Dressing";T.de.aT="Unser Dressing";T.es.aT="Nuestro Dressing";T.it.aT="Il nostro Dressing";
 
-/* ARTICLES : ajoute une ligne par article.
-   img = chemin de la photo, url = lien de l'annonce Vinted, name = nom, price = prix (facultatif) */
 var ITEMS=[
 {img:"air-max-97.webp", url:"https://www.vinted.fr/items/10156562453-air-max-97", name:"Nike Air Max 97"},
 {img:"converse-all-star.webp", url:"https://www.vinted.fr/items/10153754178-chaussures-converse", name:"Converse Chuck Taylor All Star"},
 {img:"adidas-forum.webp", url:"https://www.vinted.fr/items/10153702890-chaussure-adidas", name:"Adidas Forum Mid"}
 ];
+
 (function(){
   if(!ITEMS.length)return;
   var g=document.getElementById('grid');
@@ -249,8 +256,16 @@ var ITEMS=[
     if(it.price){var pr=document.createElement('small');pr.textContent=it.price;a.appendChild(pr);}
     g.appendChild(a);
   });
-  document.getElementById('articles').hidden=false;
 })();
+
+function showDressing(){
+  document.body.classList.add('page-dressing');
+  window.scrollTo(0,0);
+}
+
+function showHome(){
+  document.body.classList.remove('page-dressing');
+}
 
 var sel=document.getElementById('lang');
 function apply(l){
