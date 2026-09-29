@@ -64,17 +64,21 @@ h2{font-size:clamp(26px,3.5vw,34px);font-weight:800;letter-spacing:-.5px;margin-
 .item small{color:var(--muted);font-size:14px}
 footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;color:var(--muted);font-size:14px}
 
-/* Gestion du masque de sections */
+/* Masque du dressing */
 .page-dressing #home-content { display: none !important; }
 .page-dressing #articles { display: block !important; border-top: none; }
 
+/* Centrage spécifique sur Mobile */
 @media (max-width:720px){
   body{font-size:16px}
   .links{display:none}
-  .hero{padding:70px 0 60px}
+  .hero{padding:50px 0 40px;text-align:center}
+  h1,.lead{margin-left:auto;margin-right:auto}
+  .actions{justify-content:center}
+  .btn{width:100%;text-align:center}
+  .trust-bar{flex-direction:column;gap:12px;text-align:left}
   .points,.cats{grid-template-columns:1fr;gap:12px}
   section{padding:56px 0}
-  .trust-bar{flex-direction:column;gap:12px}
 }
 </style>
 </head>
@@ -230,7 +234,7 @@ btnShop:"Ver la tienda en Vinted",btnStory:"Nuestra historia",cT:"El concepto",
 p1t:"Prendas seleccionadas",p1p:"Cada prenda se elige por su calidad y su estilo.",
 p2t:"Marcas auténticas",p2p:"Solo artículos de marca auténticos.",
 p3t:"Precios pequeños",p3p:"Calidad de marca al alcance de cualquier presupuesto.",
-catHomme:"👨 Hombre",catFemme:"👩 Mujer",catEnfant:"🧒 Niño/a",
+catHomme:"👨 Hombre",catFemme:"👩 Mujer",catEnfant:"Niño/a",
 sT:"Mi historia",
 s1:"Tengo 17 años y UB Clothes nació de una observación sencilla: a mi alrededor, cada vez más jóvenes tienen que contar cada euro.",
 s2:"Los estudiantes están en primera línea de la precariedad, pero no son los únicos: mucha gente renuncia a ropa de calidad porque los precios se han vuelto demasiado altos.",
@@ -240,7 +244,7 @@ ctT:"Contacto",ctP:"¿Alguna pregunta sobre un artículo? Escríbenos por correo
 it:{navDressing:"Dressing",btnDressing:"Vedi dressing",nav1:"Concept",nav2:"Storia",nav3:"Contatti",
 h1:"Moda di marca, senza il prezzo di marca.",
 lead:"UB Clothes è un negozio vintage digitale: capi di marca autentici per uomo, donna e bambino.",
-btnShop:"Vai al negozio su Vinted",btnStory:"La nostra storia",cT:"Il concept",
+btnShop:"Vai al negozio su Vinted",btnStory:"Nostra storia",cT:"Il concept",
 p1t:"Capi selezionati",p1p:"Ogni capo è scelto per la sua qualità e il suo stile.",
 p2t:"Marchi autentici",p2p:"Solo articoli di marca autentici.",
 p3t:"Piccoli prezzi",p3p:"Qualità di marca alla portata di ogni budget.",
