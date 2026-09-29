@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UB Clothes</title>
+<meta name="description" content="UB Clothes : friperie digitale, pièces de marques authentiques de seconde main à petits prix.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* Couleurs de la marque : modifie uniquement ces variables */
+:root{--ink:#111;--bg:#fff;--soft:#F5F5F4;--line:#E3E3E0;--muted:#666;--accent:#111}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{font-family:'Archivo',Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.logo{font-weight:800;letter-spacing:.5px;text-decoration:none}
+.right{display:flex;align-items:center;gap:26px}
+.links{display:flex;gap:24px;font-size:15px}
+.links a{text-decoration:none;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+select{font:inherit;font-size:14px;padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+.hero{padding:110px 0 90px}
+h1{font-size:clamp(38px,6.5vw,68px);line-height:1.05;font-weight:800;letter-spacing:-1.5px;max-width:780px;margin-bottom:24px}
+.lead{max-width:520px;color:var(--muted);font-size:19px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-block;padding:14px 24px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-weight:600;text-decoration:none;border-radius:4px;transition:opacity .2s}
+.btn:hover{opacity:.8}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{opacity:.6}
+section{padding:80px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,3.5vw,34px);font-weight:800;letter-spacing:-.5px;margin-bottom:36px}
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.points h3{font-size:18px;margin-bottom:8px}
+.points p{color:var(--muted)}
+.story{background:var(--soft)}
+.story .text{max-width:640px}
+.story p+p{margin-top:18px}
+.cta{text-align:center}
+.cta p{color:var(--muted);max-width:520px;margin:0 auto}
+.cta .btn{margin-top:28px}
+.mail{font-size:20px;font-weight:600;display:inline-block;margin:0 0 6px;text-underline-offset:4px}
+.contact p{color:var(--muted);margin-bottom:18px;max-width:520px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px}
+.item{display:block;text-decoration:none}
+.item img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--soft);border-radius:4px;transition:opacity .2s}
+.item:hover img{opacity:.85}
+.item span{display:block;margin-top:10px;font-weight:600;font-size:15px}
+.item small{color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;color:var(--muted);font-size:14px}
+@media (max-width:720px){
+  body{font-size:16px}
+  .links{display:none}
+  .hero{padding:70px 0 60px}
+  .points{grid-template-columns:1fr;gap:28px}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+<header>
+  <nav class="wrap" aria-label="Navigation">
+    <a class="logo" href="#top">UB CLOTHES</a>
+    <div class="right">
+      <div class="links">
+        <a href="#concept" data-i="nav1">Concept</a>
+        <a href="#histoire" data-i="nav2">Histoire</a>
+        <a href="#contact" data-i="nav3">Contact</a>
+      </div>
+      <select id="lang" aria-label="Langue / Language">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+        <option value="it">Italiano</option>
+      </select>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <h1 data-i="h1"></h1>
+    <p class="lead" data-i="lead"></p>
+    <div class="actions">
+      <a class="btn" href="https://www.vinted.fr/member/287662659" target="_blank" rel="noopener" data-i="btnShop"></a>
+      <a class="btn ghost" href="#histoire" data-i="btnStory"></a>
+    </div>
+  </div>
+
+  <section id="concept">
+    <div class="wrap">
+      <h2 data-i="cT"></h2>
+      <div class="points">
+        <div><h3 data-i="p1t"></h3><p data-i="p1p"></p></div>
+        <div><h3 data-i="p2t"></h3><p data-i="p2p"></p></div>
+        <div><h3 data-i="p3t"></h3><p data-i="p3p"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="articles" hidden>
+    <div class="wrap">
+      <h2 data-i="aT"></h2>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="histoire" class="story">
+    <div class="wrap">
+      <h2 data-i="sT"></h2>
+      <div class="text">
+        <p data-i="s1"></p>
+        <p data-i="s2"></p>
+        <p data-i="s3"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2 data-i="shT"></h2>
+      <p data-i="shP"></p>
+      <a class="btn" href="https://www.vinted.fr/member/287662659" target="_blank" rel="noopener" data-i="shB"></a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2 data-i="ctT"></h2>
+      <p data-i="ctP"></p>
+      <a class="mail" href="mailto:ubclothes.fr@gmail.com">ubclothes.fr@gmail.com</a>
+      <div class="actions">
+        <a class="btn ghost" href="https://www.vinted.fr/member/287662659" target="_blank" rel="noopener" data-i="ctV"></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 UB Clothes – <span data-i="tag"></span></footer>
+
+<script>
+var T={
+fr:{nav1:"Concept",nav2:"Histoire",nav3:"Contact",
+h1:"La mode de marque, sans le prix qui va avec.",
+lead:"UB Clothes est une friperie digitale : des pièces de marques authentiques, de seconde main, à petits prix.",
+btnShop:"Voir la boutique Vinted",btnStory:"Notre histoire",cT:"Le concept",
+p1t:"Pièces sélectionnées",p1p:"Chaque vêtement est choisi pour sa qualité et son style.",
+p2t:"Marques authentiques",p2p:"Uniquement des articles de marque authentiques.",
+p3t:"Petits prix",p3p:"La qualité de marque, accessible à tous les budgets.",
+sT:"Mon histoire",
+s1:"J'ai 17 ans et UB Clothes est né d'un constat simple : autour de moi, de plus en plus de jeunes doivent compter chaque euro.",
+s2:"Les étudiants sont en première ligne face à la précarité, mais ils ne sont pas les seuls : beaucoup de personnes renoncent à des vêtements de qualité parce que les prix sont devenus trop élevés.",
+s3:"Je me suis lancé pour proposer des articles de marque authentiques, de qualité, à petit prix. Donner une seconde vie aux vêtements, c'est aussi une façon de consommer plus intelligemment.",
+shT:"La collection est sur Vinted",shP:"Articles disponibles, photos, tailles et prix : tout est sur notre boutique Vinted.",shB:"Accéder à Vinted",
+ctT:"Contact",ctP:"Une question sur un article ? Écris-nous par e-mail ou sur Vinted.",ctV:"Message sur Vinted",tag:"Friperie digitale"},
+en:{nav1:"Concept",nav2:"Story",nav3:"Contact",
+h1:"Brand fashion, without the brand price.",
+lead:"UB Clothes is a digital thrift store: authentic second-hand brand pieces at small prices.",
+btnShop:"View the Vinted shop",btnStory:"Our story",cT:"The concept",
+p1t:"Selected pieces",p1p:"Every item is chosen for its quality and style.",
+p2t:"Authentic brands",p2p:"Only authentic brand-name items.",
+p3t:"Small prices",p3p:"Brand quality, within reach of every budget.",
+sT:"My story",
+s1:"I'm 17, and UB Clothes started from a simple observation: around me, more and more young people have to count every euro.",
+s2:"Students are on the front line of financial insecurity, but they are not the only ones: many people give up on quality clothing because prices have become too high.",
+s3:"I started this project to offer authentic, quality brand-name items at small prices. Giving clothes a second life is also a smarter way to shop.",
+shT:"The collection is on Vinted",shP:"Available items, photos, sizes and prices: everything is on our Vinted shop.",shB:"Go to Vinted",
+ctT:"Contact",ctP:"A question about an item? Write to us by e-mail or on Vinted.",ctV:"Message on Vinted",tag:"Digital thrift store"},
+de:{nav1:"Konzept",nav2:"Geschichte",nav3:"Kontakt",
+h1:"Markenmode, ohne den Markenpreis.",
+lead:"UB Clothes ist ein digitaler Secondhand-Laden: authentische Markenstücke aus zweiter Hand zu kleinen Preisen.",
+btnShop:"Vinted-Shop ansehen",btnStory:"Unsere Geschichte",cT:"Das Konzept",
+p1t:"Ausgewählte Stücke",p1p:"Jedes Teil wird wegen seiner Qualität und seines Stils ausgewählt.",
+p2t:"Authentische Marken",p2p:"Nur authentische Markenartikel.",
+p3t:"Kleine Preise",p3p:"Markenqualität für jedes Budget.",
+sT:"Meine Geschichte",
+s1:"Ich bin 17, und UB Clothes entstand aus einer einfachen Beobachtung: In meinem Umfeld müssen immer mehr junge Menschen jeden Euro umdrehen.",
+s2:"Studierende sind von finanzieller Unsicherheit besonders betroffen, aber nicht nur sie: Viele Menschen verzichten auf hochwertige Kleidung, weil die Preise zu hoch geworden sind.",
+s3:"Ich habe dieses Projekt gestartet, um authentische, hochwertige Markenartikel zu kleinen Preisen anzubieten. Kleidung ein zweites Leben zu geben, ist außerdem eine klügere Art einzukaufen.",
+shT:"Die Kollektion ist auf Vinted",shP:"Verfügbare Artikel, Fotos, Größen und Preise: alles in unserem Vinted-Shop.",shB:"Zu Vinted",
+ctT:"Kontakt",ctP:"Eine Frage zu einem Artikel? Schreib uns per E-Mail oder auf Vinted.",ctV:"Nachricht auf Vinted",tag:"Digitaler Secondhand-Laden"},
+es:{nav1:"Concepto",nav2:"Historia",nav3:"Contacto",
+h1:"Moda de marca, sin el precio de marca.",
+lead:"UB Clothes es una tienda de segunda mano digital: prendas de marca auténticas a precios pequeños.",
+btnShop:"Ver la tienda en Vinted",btnStory:"Nuestra historia",cT:"El concepto",
+p1t:"Prendas seleccionadas",p1p:"Cada prenda se elige por su calidad y su estilo.",
+p2t:"Marcas auténticas",p2p:"Solo artículos de marca auténticos.",
+p3t:"Precios pequeños",p3p:"Calidad de marca al alcance de cualquier presupuesto.",
+sT:"Mi historia",
+s1:"Tengo 17 años y UB Clothes nació de una observación sencilla: a mi alrededor, cada vez más jóvenes tienen que contar cada euro.",
+s2:"Los estudiantes están en primera línea de la precariedad, pero no son los únicos: mucha gente renuncia a ropa de calidad porque los precios se han vuelto demasiado altos.",
+s3:"Me lancé para ofrecer artículos de marca auténticos y de calidad a precios pequeños. Dar una segunda vida a la ropa también es una forma más inteligente de consumir.",
+shT:"La colección está en Vinted",shP:"Artículos disponibles, fotos, tallas y precios: todo está en nuestra tienda de Vinted.",shB:"Ir a Vinted",
+ctT:"Contacto",ctP:"¿Alguna pregunta sobre un artículo? Escríbenos por correo o en Vinted.",ctV:"Mensaje en Vinted",tag:"Tienda de segunda mano digital"},
+it:{nav1:"Concept",nav2:"Storia",nav3:"Contatti",
+h1:"Moda di marca, senza il prezzo di marca.",
+lead:"UB Clothes è un negozio vintage digitale: capi di marca autentici di seconda mano a piccoli prezzi.",
+btnShop:"Vai al negozio su Vinted",btnStory:"La nostra storia",cT:"Il concept",
+p1t:"Capi selezionati",p1p:"Ogni capo è scelto per la sua qualità e il suo stile.",
+p2t:"Marchi autentici",p2p:"Solo articoli di marca autentici.",
+p3t:"Piccoli prezzi",p3p:"Qualità di marca alla portata di ogni budget.",
+sT:"La mia storia",
+s1:"Ho 17 anni e UB Clothes nasce da un'osservazione semplice: intorno a me, sempre più giovani devono contare ogni euro.",
+s2:"Gli studenti sono in prima linea di fronte alla precarietà, ma non sono gli unici: molte persone rinunciano ai vestiti di qualità perché i prezzi sono diventati troppo alti.",
+s3:"Ho iniziato per offrire articoli di marca autentici e di qualità a piccoli prezzi. Dare una seconda vita ai vestiti è anche un modo più intelligente di consumare.",
+shT:"La collezione è su Vinted",shP:"Articoli disponibili, foto, taglie e prezzi: tutto nel nostro negozio su Vinted.",shB:"Vai su Vinted",
+ctT:"Contatti",ctP:"Una domanda su un articolo? Scrivici via e-mail o su Vinted.",ctV:"Messaggio su Vinted",tag:"Negozio vintage digitale"}
+};
+T.fr.aT="Sélection du moment";T.en.aT="Latest picks";T.de.aT="Aktuelle Auswahl";T.es.aT="Selección del momento";T.it.aT="Selezione del momento";
+
+/* ARTICLES : ajoute une ligne par article.
+   img = chemin de la photo, url = lien de l'annonce Vinted, name = nom, price = prix (facultatif)
+   Exemple :
+   {img:"photos/pull-nike.jpg", url:"https://www.vinted.fr/items/123456-pull-nike", name:"Pull Nike", price:"15 €"}, */
+var ITEMS=[
+{img:"photos/air-max-97.webp", url:"https://www.vinted.fr/items/10156562453-air-max-97", name:"Nike Air Max 97"},
+{img:"photos/converse-all-star.webp", url:"https://www.vinted.fr/items/10153754178-chaussures-converse", name:"Converse Chuck Taylor All Star"},
+{img:"photos/adidas-forum.webp", url:"https://www.vinted.fr/items/10153702890-chaussure-adidas", name:"Adidas Forum Mid"}
+];
+(function(){
+  if(!ITEMS.length)return;
+  var g=document.getElementById('grid');
+  ITEMS.forEach(function(it){
+    var a=document.createElement('a');
+    a.className='item';a.href=it.url;a.target='_blank';a.rel='noopener';
+    var im=document.createElement('img');
+    im.src=it.img;im.alt=it.name;im.loading='lazy';
+    var n=document.createElement('span');n.textContent=it.name;
+    a.appendChild(im);a.appendChild(n);
+    if(it.price){var pr=document.createElement('small');pr.textContent=it.price;a.appendChild(pr);}
+    g.appendChild(a);
+  });
+  document.getElementById('articles').hidden=false;
+})();
+
+var sel=document.getElementById('lang');
+function apply(l){
+  if(!T[l])l='fr';
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i]').forEach(function(e){e.textContent=T[l][e.getAttribute('data-i')]});
+  sel.value=l;
+  try{localStorage.setItem('ub-lang',l)}catch(e){}
+}
+var start='';
+try{start=localStorage.getItem('ub-lang')||''}catch(e){}
+if(!start)start=(navigator.language||'fr').slice(0,2);
+apply(start);
+sel.addEventListener('change',function(){apply(sel.value)});
+</script>
+</body>
+</html>
