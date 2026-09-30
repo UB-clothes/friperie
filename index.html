@@ -80,6 +80,10 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;colo
   .points,.cats{grid-template-columns:1fr;gap:12px}
   section{padding:56px 0}
 }
+.item-img-wrapper{position:relative;overflow:hidden;border-radius:4px}
+.item.sold img{opacity:.5}
+.item.sold:hover img{opacity:.5}
+.badge-sold{position:absolute;top:10px;left:10px;background:#111;color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:3px;letter-spacing:1px;text-transform:uppercase;z-index:2}
 </style>
 </head>
 <body>
@@ -258,31 +262,58 @@ ctT:"Contatti",ctP:"Una domanda su un articolo? Scrivici via e-mail o su Vinted.
 };
 T.fr.aT="Notre Dressing";T.en.aT="Our Dressing";T.de.aT="Unser Dressing";T.es.aT="Nuestro Dressing";T.it.aT="Il nostro Dressing";
 
+/* Tableau des articles avec statut "sold" */
 var ITEMS=[
-  {img:"air-max-97.webp", url:"https://www.vinted.fr/items/10156562453-air-max-97", name:"Nike Air Max 97"},
-  {img:"converse-all-star.webp", url:"https://www.vinted.fr/items/10153754178-chaussures-converse", name:"Converse Chuck Taylor All Star"},
-  {img:"adidas-forum.webp", url:"https://www.vinted.fr/items/10186284754-chaussure-adidas", name:"Adidas Forum Mid"},
-  {img:"jogging-guess.webp", url:"https://www.vinted.fr/items/10186316925-pantalon-de-jogging-guess", name:"Pantalon de jogging Guess"},
-  {img:"jogging-pxp-baba.webp", url:"https://www.vinted.fr/items/10189281608-pantalon-de-jogging-project-x-paris-baba-collab", name:"Jogging Project X Paris x BABA"},
-  {img:"tshirt-guess-fluo.webp", url:"https://www.vinted.fr/items/10189241443-t-shirt-guess", name:"T-shirt Guess"},
-  {img:"tshirt-guess-enfant.webp", url:"https://www.vinted.fr/items/10186250176-t-shirt-guess-los-angeles-enfant", name:"T-shirt Guess Los Angeles"}
+  {img:"air-max-97.webp", url:"https://www.vinted.fr/items/10156562453-air-max-97", name:"Nike Air Max 97", sold: false},
+  {img:"converse-all-star.webp", url:"https://www.vinted.fr/items/10153754178-chaussures-converse", name:"Converse Chuck Taylor All Star", sold: false},
+  {img:"adidas-forum.webp", url:"https://www.vinted.fr/member/287662659", name:"Adidas Forum Mid", sold: true},
+  {img:"jogging-guess.webp", url:"https://www.vinted.fr/items/9830977379-pantalon-de-jogging-guess", name:"Pantalon de jogging Guess", sold: false},
+  {img:"jogging-pxp-baba.webp", url:"https://www.vinted.fr/items/9830869296-pantalon-de-jogging-project-x-paris-baba-collab", name:"Jogging Project X Paris x BABA", sold: false},
+  {img:"tshirt-guess-fluo.webp", url:"https://www.vinted.fr/items/9830413612-t-shirt-guess", name:"T-shirt Guess Sportswear Fluo", sold: false},
+  {img:"tshirt-guess-enfant.webp", url:"https://www.vinted.fr/items/9830123376-t-shirt-guess-los-angeles-enfant", name:"T-shirt Guess Los Angeles Enfant", sold: false}
 ];
 
 (function(){
   if(!ITEMS.length)return;
   var g=document.getElementById('grid');
-  ITEMS.forEach(function(it){
+
+  // Trier pour mettre les articles DISPONIBLES en premier et VENDUS à la fin
+  var sortedItems = ITEMS.slice().sort(function(a, b) {
+    return (a.sold === b.sold) ? 0 : a.sold ? 1 : -1;
+  });
+
+  sortedItems.forEach(function(it){
     var a=document.createElement('a');
-    a.className='item';a.href=it.url;a.target='_blank';a.rel='noopener';
+    a.className='item' + (it.sold ? ' sold' : '');
+    a.href=it.url;
+    a.target='_blank';
+    a.rel='noopener';
+    
+    var imgWrap=document.createElement('div');
+    imgWrap.className='item-img-wrapper';
+
+    if(it.sold){
+      var badge=document.createElement('div');
+      badge.className='badge-sold';
+      badge.textContent='VENDU';
+      imgWrap.appendChild(badge);
+    }
+
     var im=document.createElement('img');
-    im.src=it.img;im.alt=it.name;im.loading='lazy';
-    var n=document.createElement('span');n.textContent=it.name;
-    a.appendChild(im);a.appendChild(n);
+    im.src=it.img;
+    im.alt=it.name;
+    im.loading='lazy';
+    imgWrap.appendChild(im);
+
+    var n=document.createElement('span');
+    n.textContent=it.name;
+    
+    a.appendChild(imgWrap);
+    a.appendChild(n);
     if(it.price){var pr=document.createElement('small');pr.textContent=it.price;a.appendChild(pr);}
     g.appendChild(a);
   });
-})();
-
+})()
 function showDressing(){
   document.body.classList.add('page-dressing');
   window.scrollTo(0,0);
