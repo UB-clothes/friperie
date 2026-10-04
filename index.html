@@ -43,6 +43,15 @@ h1{font-size:clamp(38px,6.5vw,68px);line-height:1.05;font-weight:800;letter-spac
 .cat-card{padding:20px;background:var(--bg);border:1px solid var(--line);border-radius:6px;text-align:center;font-weight:800;font-size:18px;cursor:pointer;transition:transform .2s, border-color .2s}
 .cat-card:hover{border-color:var(--ink);transform:translateY(-2px)}
 
+/* Block Compte à rebours dans le dressing */
+.drop-banner{background:var(--ink);color:#fff;padding:24px;border-radius:8px;margin-bottom:36px;text-align:center}
+.drop-banner h3{font-size:16px;text-transform:uppercase;letter-spacing:1px;opacity:.8;margin-bottom:12px}
+.countdown{display:flex;justify-content:center;gap:16px;margin-top:8px}
+.cd-unit{display:flex;flex-direction:column;align-items:center;min-width:60px}
+.cd-num{font-size:28px;font-weight:800;line-height:1}
+.cd-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-top:4px}
+.drop-live{font-size:20px;font-weight:800;color:#22c55e}
+
 section{padding:80px 0;border-top:1px solid var(--line)}
 h2{font-size:clamp(26px,3.5vw,34px);font-weight:800;letter-spacing:-.5px;margin-bottom:36px}
 .points{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
@@ -79,6 +88,9 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;colo
   .trust-bar{flex-direction:column;gap:12px;text-align:left}
   .points,.cats{grid-template-columns:1fr;gap:12px}
   section{padding:56px 0}
+  .countdown{gap:10px}
+  .cd-num{font-size:22px}
+  .cd-unit{min-width:45px}
 }
 .item-img-wrapper{position:relative;overflow:hidden;border-radius:4px}
 .item.sold img{opacity:.5}
@@ -180,6 +192,18 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;colo
   <!-- Page Dressing isolée -->
   <section id="articles" style="display:none;">
     <div class="wrap">
+      <!-- Compte à rebours Prochain Drop -->
+      <div class="drop-banner">
+        <h3 data-i="dropTitle">Prochain Drop Dimanche à 18h</h3>
+        <div id="countdown" class="countdown">
+          <div class="cd-unit"><span id="cd-days" class="cd-num">00</span><span class="cd-label" data-i="cdDays">Jours</span></div>
+          <div class="cd-unit"><span id="cd-hours" class="cd-num">00</span><span class="cd-label" data-i="cdHours">Heures</span></div>
+          <div class="cd-unit"><span id="cd-mins" class="cd-num">00</span><span class="cd-label" data-i="cdMins">Min</span></div>
+          <div class="cd-unit"><span id="cd-secs" class="cd-num">00</span><span class="cd-label" data-i="cdSecs">Sec</span></div>
+        </div>
+        <div id="drop-live-msg" class="drop-live" style="display:none;" data-i="dropLive">🔥 Le Drop de la semaine est en ligne !</div>
+      </div>
+
       <h2 data-i="aT"></h2>
       <div class="grid" id="grid"></div>
     </div>
@@ -203,7 +227,9 @@ s1:"J'ai 17 ans et UB Clothes est né d'un constat simple : autour de moi, de pl
 s2:"Les étudiants sont en première ligne face à la précarité, mais ils ne sont pas les seuls : beaucoup de personnes renoncent à des vêtements de qualité parce que les prix sont devenus trop élevés.",
 s3:"Je me suis lancé pour proposer des articles de marque authentiques, de qualité, à petit prix. Donner une seconde vie aux vêtements, c'est aussi une façon de consommer plus intelligemment.",
 shT:"La collection est sur Vinted",shP:"Articles disponibles, photos, tailles et prix : tout est sur notre boutique Vinted.",shB:"Accéder à Vinted",
-ctT:"Contact",ctP:"Une question sur un article ? Écris-nous par e-mail ou sur Vinted.",ctV:"Message sur Vinted",tag:"Friperie digitale"},
+ctT:"Contact",ctP:"Une question sur un article ? Écris-nous par e-mail ou sur Vinted.",ctV:"Message sur Vinted",tag:"Friperie digitale",
+dropTitle:"🔥 Prochain Drop : Dimanche à 18h00",cdDays:"Jours",cdHours:"Heures",cdMins:"Min",cdSecs:"Sec",dropLive:"🔥 Le Drop de la semaine est en ligne !"},
+
 en:{navDressing:"Dressing",btnDressing:"View dressing",nav1:"Concept",nav2:"Story",nav3:"Contact",
 h1:"Brand fashion, without the brand price.",
 lead:"UB Clothes is a digital thrift store: authentic second-hand brand pieces for men, women and kids at small prices.",
@@ -217,7 +243,9 @@ s1:"I'm 17, and UB Clothes started from a simple observation: around me, more an
 s2:"Students are on the front line of financial insecurity, but they are not the only ones: many people give up on quality clothing because prices have become too high.",
 s3:"I started this project to offer authentic, quality brand-name items at small prices. Giving clothes a second life is also a smarter way to shop.",
 shT:"The collection is on Vinted",shP:"Available items, photos, sizes and prices: everything is on our Vinted shop.",shB:"Go to Vinted",
-ctT:"Contact",ctP:"A question about an item? Write to us by e-mail or on Vinted.",ctV:"Message on Vinted",tag:"Digital thrift store"},
+ctT:"Contact",ctP:"A question about an item? Write to us by e-mail or on Vinted.",ctV:"Message on Vinted",tag:"Digital thrift store",
+dropTitle:"🔥 Next Drop: Sunday at 6:00 PM",cdDays:"Days",cdHours:"Hours",cdMins:"Min",cdSecs:"Sec",dropLive:"🔥 Weekly Drop is now LIVE!"},
+
 de:{navDressing:"Dressing",btnDressing:"Zum Dressing",nav1:"Konzept",nav2:"Geschichte",nav3:"Kontakt",
 h1:"Markenmode, ohne den Markenpreis.",
 lead:"UB Clothes ist ein digitaler Secondhand-Laden: authentische Markenstücke für Herren, Damen und Kinder.",
@@ -231,7 +259,9 @@ s1:"Ich bin 17, und UB Clothes entstand aus einer einfachen Beobachtung: In mein
 s2:"Studierende sind von finanzieller Unsicherheit besonders betroffen, aber nicht nur sie: Viele Menschen verzichten auf hochwertige Kleidung, weil die Preise zu hoch geworden sind.",
 s3:"Ich habe dieses Projekt gestartet, um authentische, hochwertige Markenartikel zu kleinen Preisen anzubieten. Kleidung ein zweites Leben zu geben, ist außerdem eine klügere Art einzukaufen.",
 shT:"Die Kollektion ist auf Vinted",shP:"Verfügbare Artikel, Fotos, Größen und Preise: alles in unserem Vinted-Shop.",shB:"Zu Vinted",
-ctT:"Kontakt",ctP:"Eine Frage zu einem Artikel? Schreib uns per E-Mail oder auf Vinted.",ctV:"Nachricht auf Vinted",tag:"Digitaler Secondhand-Laden"},
+ctT:"Kontakt",ctP:"Eine Frage zu einem Artikel? Schreib uns per E-Mail oder auf Vinted.",ctV:"Nachricht auf Vinted",tag:"Digitaler Secondhand-Laden",
+dropTitle:"🔥 Nächster Drop: Sonntag um 18:00 Uhr",cdDays:"Tage",cdHours:"Std",cdMins:"Min",cdSecs:"Sek",dropLive:"🔥 Der neue Drop ist LIVE!"},
+
 es:{navDressing:"Dressing",btnDressing:"Ver dressing",nav1:"Concepto",nav2:"Historia",nav3:"Contacto",
 h1:"Moda de marca, sin el precio de marca.",
 lead:"UB Clothes es una tienda de segunda mano digital: prendas de marca auténticas para hombres, mujeres y niños.",
@@ -245,7 +275,9 @@ s1:"Tengo 17 años y UB Clothes nació de una observación sencilla: a mi alrede
 s2:"Los estudiantes están en primera línea de la precariedad, pero no son los únicos: mucha gente renuncia a ropa de calidad porque los precios se han vuelto demasiado altos.",
 s3:"Me lancé para ofrecer artículos de marca auténticos y de calidad a precios pequeños. Dar una segunda vida a la ropa también es una forma más inteligente de consumir.",
 shT:"La colección está en Vinted",shP:"Artículos disponibles, fotos, tallas y precios: todo está en nuestra tienda de Vinted.",shB:"Ir a Vinted",
-ctT:"Contacto",ctP:"¿Alguna pregunta sobre un artículo? Escríbenos por correo o en Vinted.",ctV:"Mensaje en Vinted",tag:"Tienda de segunda mano digital"},
+ctT:"Contacto",ctP:"¿Alguna pregunta sobre un artículo? Escríbenos por correo o en Vinted.",ctV:"Mensaje en Vinted",tag:"Tienda de segunda mano digital",
+dropTitle:"🔥 Próximo Drop: Domingo a las 18:00",cdDays:"Días",cdHours:"Horas",cdMins:"Min",cdSecs:"Seg",dropLive:"🔥 ¡El Drop ya está EN VIVO!"},
+
 it:{navDressing:"Dressing",btnDressing:"Vedi dressing",nav1:"Concept",nav2:"Storia",nav3:"Contatti",
 h1:"Moda di marca, senza il prezzo di marca.",
 lead:"UB Clothes è un negozio vintage digitale: capi di marca autentici per uomo, donna e bambino.",
@@ -259,18 +291,19 @@ s1:"Ho 17 anni e UB Clothes nasce da un'osservazione semplice: intorno a me, sem
 s2:"Gli studenti sono in prima linea di fronte alla precarietà, ma non sono gli unici: molte persone rinunciano ai vestiti di qualità perché i prezzi sono diventati troppo alti.",
 s3:"Ho iniziato per offrire articoli di marca autentici e di qualità a piccoli prezzi. Dare una seconda vita ai vestiti è anche un modo più intelligente di consumare.",
 shT:"La collezione è su Vinted",shP:"Articoli disponibili, foto, taglie e prezzi: tutto nel nostro negozio su Vinted.",shB:"Vai su Vinted",
-ctT:"Contatti",ctP:"Una domanda su un articolo? Scrivici via e-mail o su Vinted.",ctV:"Messaggio su Vinted",tag:"Negozio vintage digitale"}
+ctT:"Contatti",ctP:"Una domanda su un articolo? Scrivici via e-mail o su Vinted.",ctV:"Messaggio su Vinted",tag:"Negozio vintage digitale",
+dropTitle:"🔥 Prossimo Drop: Domenica alle 18:00",cdDays:"Giorni",cdHours:"Ore",cdMins:"Min",cdSecs:"Sec",dropLive:"🔥 Il nuovo Drop è ONLINE!"}
 };
 T.fr.aT="Notre Dressing";T.en.aT="Our Dressing";T.de.aT="Unser Dressing";T.es.aT="Nuestro Dressing";T.it.aT="Il nostro Dressing";
 
 /* Tableau des articles avec statut "sold" */
 var ITEMS=[
-  {img:"ferrari.webp", url:"https://www.vinted.fr/items/10205537500/edit", name:"Maillot de baseball Ferrari, Hommes", sold: false},
-  {img:"jacket-puma.webp", url:"https://www.vinted.fr/items/10205410867/edit", name:"Veste Puma, Mixtes", sold: false},
-  {img:"chaussure-converse.webp", url:"https://www.vinted.fr/items/10229608499/edit", name:"Converse strass, Femmes", sold: false},
-  {img:"tricot-nike.webp", url:"https://www.vinted.fr/items/10229395309/edit", name:"Nike pro, Hommes", sold: false},
-  {img:"jacket-blanche.webp", url:"https://www.vinted.fr/items/10205485308/edit", name:"Veste Sergio Tacchini, Hommes", sold: false},
-  {img:"jean-diesel.webp", url:"https://www.vinted.fr/items/10229570277/edit", name:"Jean Diesel, Femmes", sold: false},
+  {img:"ferrari.webp", url:"https://www.vinted.fr/items/10205537500", name:"Maillot de baseball Ferrari, Hommes", sold: false},
+  {img:"jacket-puma.webp", url:"https://www.vinted.fr/items/10205410867", name:"Veste Puma, Mixtes", sold: false},
+  {img:"chaussure-converse.webp", url:"https://www.vinted.fr/items/10229608499", name:"Converse strass, Femmes", sold: false},
+  {img:"tricot-nike.webp", url:"https://www.vinted.fr/items/10229395309", name:"Nike pro, Hommes", sold: false},
+  {img:"jacket-blanche.webp", url:"https://www.vinted.fr/items/10205485308", name:"Veste Sergio Tacchini, Hommes", sold: false},
+  {img:"jean-diesel.webp", url:"https://www.vinted.fr/items/10229570277", name:"Jean Diesel, Femmes", sold: false},
   {img:"ellesse.webp", url:"https://www.vinted.fr/items/9830560497-coupe-vent-ellesse-enfants", name:"Coupe vent Ellesse, Enfants", sold: false},
   {img:"air-max-97.webp", url:"https://www.vinted.fr/items/10156562453-air-max-97", name:"Nike Air Max 97, Femmes", sold: false},
   {img:"converse-all-star.webp", url:"https://www.vinted.fr/items/10153754178-chaussures-converse", name:"Converse Chuck Taylor All Star, Hommes", sold: false},
@@ -285,7 +318,6 @@ var ITEMS=[
   if(!ITEMS.length)return;
   var g=document.getElementById('grid');
 
-  // Trier pour mettre les articles DISPONIBLES en premier et VENDUS à la fin
   var sortedItems = ITEMS.slice().sort(function(a, b) {
     return (a.sold === b.sold) ? 0 : a.sold ? 1 : -1;
   });
@@ -321,7 +353,57 @@ var ITEMS=[
     if(it.price){var pr=document.createElement('small');pr.textContent=it.price;a.appendChild(pr);}
     g.appendChild(a);
   });
-})()
+})();
+
+/* Logique du compte à rebours vers le dimanche 18h */
+function getNextSundayDrop() {
+  var now = new Date();
+  var day = now.getDay(); // 0 = Dimanche
+  var daysUntilSunday = (7 - day) % 7;
+  
+  var target = new Date(now);
+  target.setDate(now.getDate() + daysUntilSunday);
+  target.setHours(18, 0, 0, 0);
+
+  // Si on est dimanche et qu'il est déjà passé 18h, viser dimanche prochain
+  if (day === 0 && now.getTime() >= target.getTime()) {
+    target.setDate(target.getDate() + 7);
+  }
+  return target;
+}
+
+function updateCountdown() {
+  var now = new Date().getTime();
+  var target = getNextSundayDrop().getTime();
+  var diff = target - now;
+
+  var cdBox = document.getElementById('countdown');
+  var msgBox = document.getElementById('drop-live-msg');
+
+  // Si on est à moins d'1 heure du drop le dimanche ou juste après
+  if (diff <= 0) {
+    if(cdBox) cdBox.style.display = 'none';
+    if(msgBox) msgBox.style.display = 'block';
+    return;
+  } else {
+    if(cdBox) cdBox.style.display = 'flex';
+    if(msgBox) msgBox.style.display = 'none';
+  }
+
+  var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  var h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  var s = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('cd-days').textContent = d < 10 ? '0' + d : d;
+  document.getElementById('cd-hours').textContent = h < 10 ? '0' + h : h;
+  document.getElementById('cd-mins').textContent = m < 10 ? '0' + m : m;
+  document.getElementById('cd-secs').textContent = s < 10 ? '0' + s : s;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
 function showDressing(){
   document.body.classList.add('page-dressing');
   window.scrollTo(0,0);
