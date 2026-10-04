@@ -9,6 +9,55 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
+  /* Footer Minimaliste & Professionnel */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 40px 24px;
+  background: var(--bg);
+  color: var(--ink);
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+.footer-brand strong {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.footer-brand p {
+  color: var(--muted);
+  font-size: 14px;
+}
+.social-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.social-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.social-icon:hover {
+  background: var(--soft);
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.footer-copy {
+  color: var(--muted);
+  font-size: 13px;
+}
 :root{--ink:#111;--bg:#fff;--soft:#F5F5F4;--line:#E3E3E0;--muted:#666;--accent:#111}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -136,7 +185,7 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;colo
       <div class="trust-bar">
         <div class="trust-item">🚚 Envoi rapide sous 24/48h</div>
         <div class="trust-item">✨ Articles 100% authentiques</div>
-        <div class="trust-item">🔒 Paiement sécurisé via Vinted</div>
+        <div class="trust-item">🔒 Paiement sécurisé via Vinted & Opla</div>
       </div>
 
       <!-- Section Catégories -->
@@ -210,7 +259,57 @@ footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;colo
   </section>
 </main>
 
-<footer>© 2026 UB Clothes – <span data-i="tag"></span></footer>
+<footer>
+  <div class="wrap footer-content">
+    <div class="footer-brand">
+      <strong>UB CLOTHES</strong>
+      <p data-i="tag">Friperie digitale</p>
+    </div>
+
+    <!-- Liens vers tes plateformes & réseaux -->
+    <div class="social-links">
+      <!-- Vinted -->
+      <a href="https://www.vinted.fr/member/287662659" target="_blank" rel="noopener" aria-label="Boutique Vinted" class="social-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+        <span>Vinted</span>
+      </a>
+
+      <!-- Opla -->
+      <a href="https://www.opla.co/seller/auth0%7C6ac2c87edc363f7f02c11194" target="_blank" rel="noopener" aria-label="Boutique Opla" class="social-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 4.67 7 5.5 7z"/>
+        </svg>
+        <span>Opla</span>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/ub_clothes" target="_blank" rel="noopener" aria-label="Instagram UB Clothes" class="social-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        <span>Instagram</span>
+      </a>
+
+      <!-- Contact E-mail -->
+      <a href="mailto:ubclothes.fr@gmail.com" aria-label="Contact Email" class="social-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span>Contact</span>
+      </a>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 UB Clothes – Tous droits réservés.
+    </div>
+  </div>
+</footer>
+
 
 <script>
 var T={
